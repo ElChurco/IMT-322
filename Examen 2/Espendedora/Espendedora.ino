@@ -39,7 +39,7 @@ void loop() {
     //si hay bebida seleccionada
     if (bebidaSeleccionada > 0){
         //actualizamos el estado según bebida seleccionada
-        FSM = static_cast<maquina>(bebidaSeleccionada - 1);
+        FSM = static_cast<maquina>(bebidaSeleccionada-1);
         procesarBebida();
     } else {
 
