@@ -1,0 +1,1 @@
+void mostrarBarraDeCarga(int t);
