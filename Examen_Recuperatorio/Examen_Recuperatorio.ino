@@ -13,7 +13,7 @@ enum State
   VERIFICACION,
   ACCESO,
   DENEGAR,
-  REINICIO
+  REINICIO  
 };
 
 State currentState = ESPERA;
@@ -38,18 +38,19 @@ void loop(){
     case ESPERA:
       if (Serial.available() > 0){
         char key = Serial.read();
+
         Serial.print(key); //mostramos caracter
 
         if (key=='\n') break; //se ignora caracteres de nueva linea
 
         inputPassword[inputIndex++] =key;
 
-        if (inputIndex >= sizeof(inputPassword) - 1){
+        if (inputIndex >= sizeof(inputPassword) -1){
           inputPassword[inputIndex] = '\0'; //se termina la cadena
           currentState = VERIFICACION;
         }
       }
-      if (digitalRead(resetButtonPin) == LOW){
+      if (digitalRead(resetButtonPin)== LOW){
         currentState = REINICIO;
       }
       break;
